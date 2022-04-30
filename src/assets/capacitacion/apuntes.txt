@@ -1,0 +1,84 @@
+0) Github: Resguardo de nuestro repositorio.
+Backup de los módulos de node (node_modules). En general esta carpeta no se resguarda porque
+en el caso de necesitarla ejecutando en la carpeta del proyecto: npm install se recuperan
+todos los paquetes gracias a que los mismos están indicados en el package.json.
+
+Configuración de Git en nuestro equipo: (Para hacer uso del Commit/Update)
+
+Para descargar git: https://git-scm.com/
+Para confirmar que git está instalado: git --version
+
+a) $ git config --global user.name "[name]"
+Ejemplo: git config --global user.name "iiifilomena"
+
+b) $ git config --global user.email "[email address]"
+Ejemplo: git config --global user.email "iiifilomena@gmail.com"
+
+c) $ git config --global color.ui auto
+
+Luego: Ejecutar el comando: git init
+Se aconseja crear una carpeta .gitignore en la raiz del proyecto para indicar que archivos
+no van a formar parte del control de cambios.
+
+d) Para hacer el backup el comando es: git add .
+Este comando le dice a git le dice que necesito que todos los archivos modificados desde
+el ultimo commit, preparate para tomarles una foto. Para poderla recuperar en un futuro.
+
+e) Para materializar el commit el comando es: git commit -m "Mi primer commit"
+
+f) Para hacer la recuperación: git checkout -- . (Es como si fuera el update del Tortoise)
+
+Configuración de Github en nuestro equipo: (Para subir al repositorio de GitHub)
+
+a) En el sitio github.com (Ya tenemos cuenta) ir a: New repository.
+b) Indicar repository name
+c) Indicar si es público (que lo vea todo el mundo) o privado (solo lo vemos nosotros)
+d) Hacer un clic en el botón Create repository (Crear repositorio )
+
+Crear un nuevo repositorio desde línea de comando:
+echo "# webpack-starter" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/iiifilomena-dev/webpack-starter.git
+git push -u origin main
+
+Agregar un repositorio existente desde línea de comando:
+(Agrega un origen remoto a nuestro repositorio)
+git remote add origin https://github.com/iiifilomena-dev/webpack-starter.git 
+
+git branch -M main
+
+(Sube todos los cambios hacia el repositorio)
+git push -u origin main
+
+Especial: git log (Muestra lo que fuimos haciendo, muy bueno es una perlita)
+
+Agregar un archivo README.md con las especificaciones necesarias
+
+
+1) Instalador para ofuscar css
+npm i -D css-minimizer-webpack-plugin terser-webpack-plugin
+Esto debe estar en webpack.prod.js (Solo en ambiente de producción)
+const CssMinimizer = require('css-minimizer-webpack-plugin');
+const Tercer = require('tercer-webpack-plugin');
+
+2) Babel: Transforma nuestro código desde un estandar alto de ECMA Script a uno mas bajo. 
+Babel es un compilador de js: Documentación oficial: https://babeljs.io/
+Instalación: npm install --save-dev babel-loader @babel/core
+
+{
+    test: /\.m?js$/,
+    exclude: /node_modules/,
+    use: {
+        loader: "babel-loader",
+        options: {
+        presets: ['@babel/preset-env']
+        }
+    }
+}
+
+a) Es necesario crear: Create babel.config.json configuration file
+b) Instalar: npm install @babel/preset-env --save-dev
+

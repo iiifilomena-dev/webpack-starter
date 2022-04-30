@@ -60,11 +60,6 @@ Especial: git log (Muestra lo que fuimos haciendo, muy bueno es una perlita)
 
 Agregar un archivo README.md con las especificaciones necesarias
 
-github Pages: usar el hosting de github para desplegar páginas web que solamente usen html 5, css y js
-
-a) La carpeta dist debe ser renombrada con el nombre docs (Esto lo exige github)
-b) ejecutar: git add . (Para que git empiece a darle seguimiento)
-
 
 1) Instalador para ofuscar css
 npm i -D css-minimizer-webpack-plugin terser-webpack-plugin
